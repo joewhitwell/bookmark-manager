@@ -20,11 +20,25 @@ require 'capybara'
 require 'capybara/rspec'
 require './app/models/link'
 require 'rspec'
+require 'database_cleaner'
+
 
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
+config.before(:suite) do
+DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.clean_with(:truncation)
+end
+
+config.before(:each) do
+  DatabaseCleaner.start
+end
+
+config.after(:each) do
+  DatabaseCleaner.clean
+end
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|
