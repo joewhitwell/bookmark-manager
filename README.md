@@ -1,5 +1,4 @@
 
-
 ## Bookmark Manager ##
 
 ## User Stories ##
@@ -7,7 +6,7 @@
 ```
 As a MA student:
 
-So that I can view all  my bookmarks,
+So that I can view all my bookmarks,
 I want to list links.
 
 So that I can add to my bookmarks,
