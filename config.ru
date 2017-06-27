@@ -1,2 +1,2 @@
-require_relative "./app"
-run Line 
+require_relative "./app/app"
+run BookmarkManager
