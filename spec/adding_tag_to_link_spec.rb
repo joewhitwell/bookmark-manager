@@ -3,11 +3,10 @@ feature 'users can add a tag' do
     visit '/links/new'
     fill_in 'url', with: 'http://www.gardenersworld.com/'
     fill_in 'title', with: 'gardenersworld'
-    fill_in 'tag', with: 'gardening'
+    fill_in 'tags', with: 'gardening'
     click_button 'Create link'
     
-    within 'ul#links' do
-      expect(page).to have_content('gardening')
-    end
+    link = Link.first
+    expect(link.tags.map(&:name)).to include('gardening')
   end
 end
