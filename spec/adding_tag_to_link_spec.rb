@@ -16,7 +16,7 @@ feature 'users can add multiple tags' do
     visit '/links/new'
     fill_in 'url', with: 'http://www.gardenersworld.com/'
     fill_in 'title', with: 'gardenersworld'
-    fill_in 'tags', with: 'gardening, leisure'
+    fill_in 'tags', with: 'gardening,leisure'
     click_button 'Create link'
     link = Link.first
     expect(link.tags.map(&:name)).to include('gardening')
