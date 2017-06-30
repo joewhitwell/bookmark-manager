@@ -14,6 +14,19 @@ class BookmarkManager < Sinatra::Base
     erb :links
   end
 
+p 5
+  get '/users/new' do
+    p 6
+    erb :'/users/new'
+    p 7
+  end
+
+  post '/users' do p 1
+    p 2
+    user = User.create(email: params[:email], password: params[:password])
+    p 4
+  end
+
   before do
     @links = Link.all
     @tags = Tag.all
